@@ -72,8 +72,8 @@ menambahkan delegasi subdomain gunung di dalam semeruc07.pw
 
 ### No 8 Domain http://semeruyyy.pw memiliki DocumentRoot pada /var/www/semeruyyy.pw . Awalnya web dapat diakses menggunakan alamat http:// semeruyyy.pw /index.php/home 
 ![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/modul2.8.jpg)
-![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/modul2.8.1.jpg)
 ![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/modul2.8.2.jpg)
+![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/modul2.8.1.jpg)
 
 langkah kerja
 + mengedit semeruc07.pw.conf
@@ -85,6 +85,14 @@ langkah kerja
 
 
 ### No 9 Karena dirasa alamat urlnya kurang bagus, maka diaktifkan mod rewrite agar urlnya menjadi http:// semeruyyy.pw /home .
+![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/modul2.9.jpg)
+
+langkah 
++ nano file .htaccess
++ rewriteRule `http://semeruc07.pw/index.php/home`
++ rewriteCond `^ /home`
+
+
 ### No 10 Web http://penanjakan.semeruyyy.pw akan digunakan untuk menyimpan assets file yangmemiliki DocumentRoot pada /var/www/ penanjakan.semeruyyy.pw dan memiliki struktur folder sebagai berikut:
 /var/www/ penanjakan.semeruyyy.pw
 /public/javascripts
@@ -92,10 +100,39 @@ langkah kerja
 /public/images
 /errors
 
+![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/modul2.10.jpg)
+![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/modul2.10.1.jpg)
+![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/modul2.10.2.jpg)
+![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/modul2.10.3.jpg)
+
+langkah
++ membuat directory/ folder sesuai dengan yang dimau soal
++ edit file penanjakan.semeruc07.pw.conf
++ menambahkan directory yang sesuai dibawah documentroot
++ ` <Directory /var/www/penanjakan.semeruc07.pw/public> Options +Indexes </Directory>` dan
++ ` <Directory /var/www/penanjakan.semeruc07.pw/public/*> Options +Indexes </Directory>`
++ lalu ls untuk memastikan sesuai dengan kemauan soal
+
 ### No 11 Pada folder /public dibolehkan directory listing namun untuk folder yang berada di dalamnya tidak dibolehkan. 
+![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/modul2.11.jpg)
+
+langkah :
++ edit file penanjakan.semeruc07.pw.conf
++ menambahkan seperti digambar mulai dari alias
+
 
 ### No 12 Untuk mengatasi HTTP Error code 404, disediakan file 404.html pada folder /errors untuk mengganti error default 404 dari Apache. 
+![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/modul2.12.jpg)
+![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/modul2.1.jpg)
+
+langkah :
++ menambahkan `ErrorLog ${APACHE_LOG_DIR}/error.log`
++ menambahkan `ErrorDocument 404 /errors/404.html`
++ menambahkan `CustomLog ${APACHE_LOG_DIR}/access.log combined`
++ akses alamat di browser untuk mengecek apakah jika error masuk kedalam file 404
+
 ### No 13 Untuk mengakses file assets javascript awalnya harus menggunakan url http:// penanjakan.semeruyyy.pw /public/javascripts .Karena terlalu panjang maka dibuatkan konfigurasi virtual host agar ketika mengakses file assets menjadi http:// penanjakan.semeruyyy.pw /js .Untuk web http:// gunung.semeruyyy.pw belum dapat dikonfigurasi pada web server karena menunggu pengerjaan website selesai. 
+
 
 ### No 14 sedangkan web http:// naik.gunung.semeruyyy.pw sudah bisa diakses hanya dengan menggunakan port 8888. DocumentRoot web berada pada /var/www/ naik.gunung.semeruyyy.pw . Dikarenakan web http:// naik.gunung.semeruyyy.pw bersifat private 
 ### No 15 Bibah meminta kamu membuat web http:// naik.gunung.semeruyyy.pw agar diberi autentikasi password dengan username “ semeru ” dan password “ kuynaikgunung ” supaya aman dan tidak sembarang orang bisa mengaksesnya. Saat Bibah mengunjungi IP PROBOLINGGO , yang muncul bukan web utama http:// semeruyyy.pw melainkan laman default Apache yang bertuliskan “It works!”. 
