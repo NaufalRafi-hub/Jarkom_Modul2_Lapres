@@ -68,7 +68,11 @@ menambahkan delegasi subdomain gunung di dalam semeruc07.pw
 
 ### No 7 subdomain dengan nama http://naik.gunung.semeruyyy.pw , domain ini diarahkan ke IP Server PROBOLINGGO. Setelah selesai membuat keseluruhan domain, kamu diminta untuk segera mengatur web server. 
 
+![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/no%207.png)
 
+Tambahkan subdomain naik pada file /etc/bind/delegasi/gunung.semeruc07.pw pada uml Mojokerto agar menjadi subdomain dari gunung.semeruc07.pw yang sudah dibuat di nomor sebelumnya. Tidak lupa, subdomain diarahkan ke IP Server PROBOLINGGO. Berikut adalah hasil ping naik.gunung.semeruc07.pw dari uml Gresik:
+
+![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/no%207%20hasil.png)
 
 ### No 8 Domain http://semeruyyy.pw memiliki DocumentRoot pada /var/www/semeruyyy.pw . Awalnya web dapat diakses menggunakan alamat http:// semeruyyy.pw /index.php/home 
 ![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/modul2.8.jpg)
@@ -140,9 +144,26 @@ langkah :
 
 ### No 14 sedangkan web http:// naik.gunung.semeruyyy.pw sudah bisa diakses hanya dengan menggunakan port 8888. DocumentRoot web berada pada /var/www/ naik.gunung.semeruyyy.pw . Dikarenakan web http:// naik.gunung.semeruyyy.pw bersifat private 
 
+Pertama download terlebih dahulu isi dari naik.gunung.semeruc07.pw melalui `wget 10.151.36.202/naik.gunung.semeru.pw.zip` kemudian dapat dilihat isi dari folder setelah dilakukan mv ke naik.gunung.semeruc07.pw.
+![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/14c.png)
+
+Setelah itu pindah ke directory /etc/apache2/sites-available dan buat naik.gunung.semeruc07.pw.conf. Dengan VirtualHost 8888, servername naik.gunung.semeruc07.pw, dengan dokumen root dari folder yang tadi sudah di download di var/www/naik.gunung.semeruc07.pw. Seperti berikut:
+![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/14a.png)
+
+Tidak lupa, tambahkan port 8888 pada directory /etc/apache2 pada file ports.conf dengan menuliskan Listen 8888.
+![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/14b.png)
 
 ### No 15 Bibah meminta kamu membuat web http:// naik.gunung.semeruyyy.pw agar diberi autentikasi password dengan username “ semeru ” dan password “ kuynaikgunung ” supaya aman dan tidak sembarang orang bisa mengaksesnya. Saat Bibah mengunjungi IP PROBOLINGGO , yang muncul bukan web utama http:// semeruyyy.pw melainkan laman default Apache yang bertuliskan “It works!”. 
 
+Buat .htaccess di root folder /var/www/naik.gunung.semeruc07.pw dengan isi sebagai berikut:
+![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/15b.png)
+
+Setelah itu pindah ke folder /etc/apache2 untuk membuat password, username, sekaligus mengganti apache2.conf. Ganti terlebih dahulu apache2.conf pada bagian directory /var/www/ pada AllowOverride All agar autentikasi dapat terbaca.
+![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/15a.png)
+
+Buat password dengan sintax berikut dengan -c artinya hanya untuk satu user saja yaitu semeru:
+
+`htpasswd -c semeru`
 
 ### No 16 Karena dirasa kurang profesional, maka setiap Bibah mengunjungi IP PROBOLINGGO akan dialihkan secara otomatis ke http:// semeruyyy.pw. 
 ![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/modul2.16.jpg)
@@ -153,4 +174,11 @@ langkah :
 
 ### No 17 Karena pengunjung pada /var/www/ penanjakan.semeruyyy.pw/public/images sangat banyak maka semua request gambar yang memiliki substring “semeru” akan diarahkan menuju semeru.jpg.
 
+Jalankan perintah `a2enmod rewrite` dan service apache2 restart. Buat .htaccess pada root folder /var/www/penanjakan.semeruc07.pw seperti berikut:
+![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/17.png)
 
+Untuk sementara /etc/apache2/site-available pada file penanjakan.semeruc07.pw.conf, set pada directory /var/www/penanjakan.semeruc07.pw/public/* yang awalnya Option -Indexes menjadi +Indexes agar dapat dibuka saat mengakses file images. Restart apache dengan service apache2 restart. Berikut adalah tampilan penanjakan.semeruc07.pw->public->images:
+![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/17b.png)
+
+Setelah itu coba klik bukansemeru.jpg (mengandung kata semeru), dan akan langsung membuka semeru.jpg seperti berikut:
+![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/17c.png)
