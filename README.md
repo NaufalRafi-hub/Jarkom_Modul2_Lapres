@@ -18,23 +18,41 @@ membuat domain semeruc07.pw
 
 ### No 2 alias http://www.semeruyyy.pw 
 ![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/modul2_1.2.jpg)
+
 menambahkan `cname` dengan menuliskan `www`
 
 ### No 3 subdomain http://www.penanjakan.semeruyyy.pw yang diatur DNS-nya pada MALANG dan mengarah ke IP Server PROBOLINGGO
 ![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/modul2_1.2.jpg)
+
 menambahkan subdomain dengan menuliskan `IN` penanjakan.semeruc07.pw yang mengarah ke IP server PROBOLINGGO yaitu, `10.151.77.68`
 
 ### No 4 reverse domain untuk domain utama. Untuk mengantisipasi server dicuri/rusak, Bibah minta dibuatkan 
 ![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/modul2_1.jpg)
+![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/modul2.4.jpg)
+
 menambahkan zone reverse dns dibawah zone domain
 + edit file `etc/bind/named.conf.local`
 + menambahkan 
-  ` zone "71.151.10.in-addr.arpa" {
+  ` zone "77.151.10.in-addr.arpa" {
     type master;
-    file "/etc/bind/jarkom/71.151.10.in-addr.arpa";
+    file "/etc/bind/jarkom/77.151.10.in-addr.arpa";
     }; `
++ copy file dari db.local ke zone yang telah dibuat
++ mengedit file 77.151.10.in-addr.arpa dan menambahkan byte terakhir di IP MALANG
 
 ### No 5 DNS Server Slave pada MOJOKERTO agar Bibah tidak terganggu menikmati keindahan Semeru pada Website. Selain website utama Bibah juga meminta dibuatkan 
+![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/modul2_1.jpg)
+![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/modul2.5.jpg)
+
+membuat malang menjadi master dan mojokerto menjadi slave
++ edit file `etc/bind/named.conf.local` 
++ isi dengan 
+    `zone "semeruc07.pw" { type master notify yes; also-notify { 10.151.77.68; }; allow-transfer { 10.151.77.68; }; file "/etc/bind/jarkom/semeruc07.pw"; };`
++ restart bind di malang
++ apt get update di mojokerto & install bind
++ edit file `etc/bind/named.conf.local` di mojokerto
++ mengubah dengan `zone "semeruc07.pw" { type slave;  masters { 10.151.77.68; }; "/var/lib/bind/semeruc07.pw"; };`
+
 ### No 6 subdomain dengan alamat http://gunung.semeruyyy.pw yang didelegasikan pada server MOJOKERTO dan mengarah ke IP Server PROBOLINGGO . Bibah juga ingin memberi petunjuk mendaki gunung semeru kepada anggota komunitas sehingga dia meminta dibuatkan 
 
 ### No 7 subdomain dengan nama http://naik.gunung.semeruyyy.pw , domain ini diarahkan ke IP Server PROBOLINGGO. Setelah selesai membuat keseluruhan domain, kamu diminta untuk segera mengatur web server. 
