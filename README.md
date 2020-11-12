@@ -16,10 +16,24 @@ membuat domain semeruc07.pw
 + copy file db.local ke dalam folder yang sudah dibuat
 + mengubah isi gile dalam `/etc/bind/jarkom2020.com` seperti gambar 2
 
-
 ### No 2 alias http://www.semeruyyy.pw 
+![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/modul2_1.2.jpg)
+menambahkan `cname` dengan menuliskan `www`
+
 ### No 3 subdomain http://www.penanjakan.semeruyyy.pw yang diatur DNS-nya pada MALANG dan mengarah ke IP Server PROBOLINGGO
+![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/modul2_1.2.jpg)
+menambahkan subdomain dengan menuliskan `IN` penanjakan.semeruc07.pw yang mengarah ke IP server PROBOLINGGO yaitu, `10.151.77.68`
+
 ### No 4 reverse domain untuk domain utama. Untuk mengantisipasi server dicuri/rusak, Bibah minta dibuatkan 
+![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/modul2_1.jpg)
+menambahkan zone reverse dns dibawah zone domain
++ edit file `etc/bind/named.conf.local`
++ menambahkan 
+  ` zone "71.151.10.in-addr.arpa" {
+    type master;
+    file "/etc/bind/jarkom/71.151.10.in-addr.arpa";
+    }; `
+
 ### No 5 DNS Server Slave pada MOJOKERTO agar Bibah tidak terganggu menikmati keindahan Semeru pada Website. Selain website utama Bibah juga meminta dibuatkan 
 ### No 6 subdomain dengan alamat http://gunung.semeruyyy.pw yang didelegasikan pada server MOJOKERTO dan mengarah ke IP Server PROBOLINGGO . Bibah juga ingin memberi petunjuk mendaki gunung semeru kepada anggota komunitas sehingga dia meminta dibuatkan 
 
