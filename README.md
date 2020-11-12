@@ -5,9 +5,9 @@ Laporan Resmi Praktikum Modul 2 Jaringan Komputer 2020
 Kelompok C07 (0099 &amp; 0157)
 
 # Pembahasan Jawaban
-
-### No 1 Kalian diminta untuk membuat sebuah website utama dengan (1) alamat http://semeruyyy.pw yang
-memiliki 
+Sebelum memasuki ke nomor soal, yaitu menambahkan server probolinggo dalam topologi.sh, sehingga menjadi 3 server yaitu Malang, Mojokerto, dan Probolinggo.
+### No 1 Kalian diminta untuk membuat sebuah website utama dengan (1) alamat http://semeruyyy.pw 
+![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/modul2_1.jpg)
 ### No 2 alias http://www.semeruyyy.pw 
 ### No 3 subdomain http://www.penanjakan.semeruyyy.pw yang diatur DNS-nya pada MALANG dan mengarah ke IP Server PROBOLINGGO
 ### No 4 reverse domain untuk domain utama. Untuk mengantisipasi server dicuri/rusak, Bibah minta dibuatkan 
