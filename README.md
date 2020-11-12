@@ -71,7 +71,17 @@ menambahkan delegasi subdomain gunung di dalam semeruc07.pw
 
 
 ### No 8 Domain http://semeruyyy.pw memiliki DocumentRoot pada /var/www/semeruyyy.pw . Awalnya web dapat diakses menggunakan alamat http:// semeruyyy.pw /index.php/home 
+![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/modul2.4.jpg)
+![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/modul2.4.1.jpg)
+![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/modul2.4.2.jpg)
 
+langkah kerja
++ mengedit semeruc07.pw.conf
++ menggantikan document root menjadi `var/www/semeruc07.pw`
++ lalu melakukan restart apache `service apache2 restart`
++ cd kedalam `var/www/semeruc07.pw`
++ ls untuk mengecek file yang ada
++ dan masuk ke browser dan input alamat website
 
 
 ### No 9 Karena dirasa alamat urlnya kurang bagus, maka diaktifkan mod rewrite agar urlnya menjadi http:// semeruyyy.pw /home .
