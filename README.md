@@ -132,12 +132,25 @@ langkah :
 + akses alamat di browser untuk mengecek apakah jika error masuk kedalam file 404
 
 ### No 13 Untuk mengakses file assets javascript awalnya harus menggunakan url http:// penanjakan.semeruyyy.pw /public/javascripts .Karena terlalu panjang maka dibuatkan konfigurasi virtual host agar ketika mengakses file assets menjadi http:// penanjakan.semeruyyy.pw /js .Untuk web http:// gunung.semeruyyy.pw belum dapat dikonfigurasi pada web server karena menunggu pengerjaan website selesai. 
+![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/modul2.13.jpg)
+ langkah :
+ + mengedit file dalam penanjakan.semeruc70.pw.conf
+ + menambahkan `alias "/js" "/var/www/penanjakan.semeruc07.pw/public/javascripts"
 
 
 ### No 14 sedangkan web http:// naik.gunung.semeruyyy.pw sudah bisa diakses hanya dengan menggunakan port 8888. DocumentRoot web berada pada /var/www/ naik.gunung.semeruyyy.pw . Dikarenakan web http:// naik.gunung.semeruyyy.pw bersifat private 
+
+
 ### No 15 Bibah meminta kamu membuat web http:// naik.gunung.semeruyyy.pw agar diberi autentikasi password dengan username “ semeru ” dan password “ kuynaikgunung ” supaya aman dan tidak sembarang orang bisa mengaksesnya. Saat Bibah mengunjungi IP PROBOLINGGO , yang muncul bukan web utama http:// semeruyyy.pw melainkan laman default Apache yang bertuliskan “It works!”. 
 
+
 ### No 16 Karena dirasa kurang profesional, maka setiap Bibah mengunjungi IP PROBOLINGGO akan dialihkan secara otomatis ke http:// semeruyyy.pw. 
+![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/modul2.16.jpg)
+
+langkah : 
++ mengedit file 000-default.conf
++ menambahkan `redirect /http://semeruc02.pw/`
+
 ### No 17 Karena pengunjung pada /var/www/ penanjakan.semeruyyy.pw/public/images sangat banyak maka semua request gambar yang memiliki substring “semeru” akan diarahkan menuju semeru.jpg.
 
 
