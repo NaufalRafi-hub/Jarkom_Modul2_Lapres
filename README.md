@@ -54,10 +54,26 @@ membuat malang menjadi master dan mojokerto menjadi slave
 + mengubah dengan `zone "semeruc07.pw" { type slave;  masters { 10.151.77.68; }; "/var/lib/bind/semeruc07.pw"; };`
 
 ### No 6 subdomain dengan alamat http://gunung.semeruyyy.pw yang didelegasikan pada server MOJOKERTO dan mengarah ke IP Server PROBOLINGGO . Bibah juga ingin memberi petunjuk mendaki gunung semeru kepada anggota komunitas sehingga dia meminta dibuatkan 
+![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/modul2_1.2.jpg)
+
+menambahkan delegasi subdomain gunung di dalam semeruc07.pw
++ edit file `nano /etc/bind/jarkom/semeruc07.pw` di malang
++ tulis ns1 yang mengarah ke ip PROBOLINGGO
++ menulis delegasi subdomain yaitu gunung
++ membuat folder delegasi dan copy dblocal `mkdir /etc/bind/delegasi` dan `cp /etc/bind/db.local /etc/bind/delegasi/gunung.semeruc07.pw`
++ lalu edit file `etc/bind/named.conf.local` 
++ menambahkan zone gunung.semeruc07.pw 
++ isi dengan `zone "gunung.semeruc07.pw" { type master; file "/etc/bind/delegasi/gunung.semeruc07.pw"; allow-transfer {any; };  };`
++ dan di ping 
 
 ### No 7 subdomain dengan nama http://naik.gunung.semeruyyy.pw , domain ini diarahkan ke IP Server PROBOLINGGO. Setelah selesai membuat keseluruhan domain, kamu diminta untuk segera mengatur web server. 
 
+
+
 ### No 8 Domain http://semeruyyy.pw memiliki DocumentRoot pada /var/www/semeruyyy.pw . Awalnya web dapat diakses menggunakan alamat http:// semeruyyy.pw /index.php/home 
+
+
+
 ### No 9 Karena dirasa alamat urlnya kurang bagus, maka diaktifkan mod rewrite agar urlnya menjadi http:// semeruyyy.pw /home .
 ### No 10 Web http://penanjakan.semeruyyy.pw akan digunakan untuk menyimpan assets file yangmemiliki DocumentRoot pada /var/www/ penanjakan.semeruyyy.pw dan memiliki struktur folder sebagai berikut:
 /var/www/ penanjakan.semeruyyy.pw
