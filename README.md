@@ -14,7 +14,7 @@ membuat domain semeruc07.pw
 + mengubah konfigurasi dari `etc/bind/named.conf.local`, dan diisi zone sesuai domain yang diinginkan
 + membuat folder dengan nama jarkom 
 + copy file db.local ke dalam folder yang sudah dibuat
-+ mengubah isi gile dalam `/etc/bind/jarkom2020.com` seperti gambar 2
++ mengubah isi gile dalam `/etc/bind/semeruc07.pw` seperti gambar 2
 
 ### No 2 alias http://www.semeruyyy.pw 
 ![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/modul2_1.2.jpg)
