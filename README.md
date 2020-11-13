@@ -28,7 +28,7 @@ menambahkan subdomain dengan menuliskan `IN` penanjakan.semeruc07.pw yang mengar
 
 ### No 4 reverse domain untuk domain utama. Untuk mengantisipasi server dicuri/rusak, Bibah minta dibuatkan 
 ![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/modul2_1.jpg)
-![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/modul2.4.jpg)
+![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/modul2.4(rev).jpg)
 
 menambahkan zone reverse dns dibawah zone domain
 + edit file `etc/bind/named.conf.local`
@@ -38,7 +38,7 @@ menambahkan zone reverse dns dibawah zone domain
     file "/etc/bind/jarkom/77.151.10.in-addr.arpa";
     }; `
 + copy file dari db.local ke zone yang telah dibuat
-+ mengedit file 77.151.10.in-addr.arpa dan menambahkan byte terakhir di IP MALANG
++ mengedit file 77.151.10.in-addr.arpa dan menambahkan byte terakhir di IP PROBOLINGGO
 
 ### No 5 DNS Server Slave pada MOJOKERTO agar Bibah tidak terganggu menikmati keindahan Semeru pada Website. Selain website utama Bibah juga meminta dibuatkan 
 ![alt text](https://github.com/NaufalRafi-hub/Jarkom_Modul2_Lapres/blob/main/image/modul2_1.jpg)
